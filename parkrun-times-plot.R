@@ -22,9 +22,9 @@ ggplot(aes(x = date, y = time, color = parkrun)) +
 
 # code for point plot 
 parkrun_plot_point <- parkrun_times %>% 
-  ggplot(aes(x = date, y = time, color = parkrun)) + 
+  ggplot(aes(x = date, y = time, colour = parkrun)) + 
   geom_point()+
-  scale_color_manual(values = brewer.pal(n = 5, name = "Set1")) +
+  scale_colour_manual(values = brewer.pal(n = 5, name = "Set1")) +
   scale_size_continuous(range = c(2, 10)) +
   labs(x = "Date", y = "Time", color = "parkrun", size = "Time") +
   theme_classic() + 
