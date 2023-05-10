@@ -32,12 +32,14 @@ parkrun_plot_point <- parkrun_times %>%
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 
-# colours
-colors <- brewer.pal(n = 5, name = "Set1")
+# Define the colors
+colours <- c("red", "blue")
 
 # plotly plot
 parkrun_plotly_point <- plot_ly(data = parkrun_times, x = ~date, y = ~time,
-                              color = ~parkrun, colors = colors, size = ~time) %>%
+                                color = ~parkrun, colours = colours, size = ~time) %>%
+
+
   add_markers() %>%
   layout(xaxis = list(title = "Date"),
          yaxis = list(title = "Time"),
@@ -46,11 +48,15 @@ parkrun_plotly_point <- plot_ly(data = parkrun_times, x = ~date, y = ~time,
          hovermode = "closest",
          font = list(family = "Arial", size = 12),
          margin = list(l = 50, r = 50, b = 50, t = 50),
-         plot_bgcolor = "rgba(0,0,0,0)",
-         paper_bgcolor = "rgba(0,0,0,0)",
+         plot_bgcolor = "white",
+         paper_bgcolor = "white",
          legend_title_font = list(family = "Arial", size = 12),
          legend_font = list(family = "Arial", size = 12),
-         legend_bgcolor = "rgba(0,0,0,0)")
+         legend_bgcolor = "white")
+
+parkrun_plotly_point
+
+
 
 
 
