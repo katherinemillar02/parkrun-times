@@ -32,7 +32,7 @@ parkrun_plot_point <- parkrun_times %>%
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 
-# Define the colors
+
 colours <- c("red", "blue")
 
 # plotly plot
@@ -42,7 +42,7 @@ parkrun_plotly_point <- plot_ly(data = parkrun_times, x = ~date, y = ~time,
 
   add_markers() %>%
   layout(xaxis = list(title = "Date"),
-         yaxis = list(title = "Time"),
+         yaxis = list(title = "Time (minutes.seconds)"),
          legend = list(title = "parkrun"),
          title = "parkrun times",
          hovermode = "closest",
