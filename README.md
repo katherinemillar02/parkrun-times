@@ -1,1 +1,3 @@
-# parkrun-times
+# All things parkrun
+
+The ever emerging parkrun...
