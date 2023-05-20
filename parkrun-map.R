@@ -21,8 +21,9 @@ ggplot() +
   theme_void() + 
   geom_point(data = parkrun_map, 
              aes(x = as.numeric(lng), 
-                 y = as.numeric(lat), size = n, color = log(n)), alpha = .7) + 
-  scale_size_area(max_size = 1000) + 
+                 y = as.numeric(lat),
+                 size = n, color = log(n)), alpha = .9) + 
+  scale_size_area(max_size = 10) + 
   scale_color_viridis_c() + 
   theme(legend.position = 'none') + 
   theme(title = element_text(size = 12))
