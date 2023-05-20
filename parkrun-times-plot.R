@@ -5,7 +5,7 @@ library(RColorBrewer)
 library(plotly)
 
 # reading the data in
-parkrun_times <- read_excel("parkrun-times.xlsx", sheet = "Sheet1")
+parkrun_times <- read_excel("parkrun-times-2.xlsx", sheet = "Sheet1")
 
 
 
@@ -54,7 +54,6 @@ parkrun_plotly_point <- plot_ly(data = parkrun_times, x = ~date, y = ~time,
          legend_font = list(family = "Arial", size = 12),
          legend_bgcolor = "white")
 
-parkrun_plotly_point
 
 
 
