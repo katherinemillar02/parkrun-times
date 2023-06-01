@@ -13,7 +13,7 @@ library(maps)
 worldmap = map_data('world')
 
 
-ggplot() + 
+parkrun_map_2 < - ggplot() + 
   geom_polygon(data = worldmap, 
                aes(x = long, y = lat, group = group), 
                fill = 'white', color = 'black') + 
