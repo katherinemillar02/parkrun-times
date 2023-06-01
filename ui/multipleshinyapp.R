@@ -11,7 +11,11 @@ ui <- fluidPage(
     tabPanel("parkrun plots", 
             h2("visualising parkruns"),
             plotOutput("plot", brush = "plot_brush", dblclick = "plot_reset")
-            ),
+           
+            
+            
+  
+             ),
     tabPanel("Number of parkruns",
              h2("comparing parkruns per person"))
   )
@@ -22,14 +26,6 @@ shinyApp(ui, server)
 
 
 
-ui <- basicPage(
-  h2("parkrun times"),
-  DT::dataTableOutput("mytable")
-)
 
-server <- function(input, output) {
-  output$mytable = DT::renderDataTable({
-    all_parkrun
-  })
-}
+
 
