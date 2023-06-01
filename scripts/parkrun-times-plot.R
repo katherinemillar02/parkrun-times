@@ -5,7 +5,7 @@ library(RColorBrewer)
 library(plotly)
 
 # reading the data in
-parkrun_times <- read_excel("parkrun-times-2.xlsx", sheet = "Sheet1")
+parkrun_times <- read_excel("data/parkrun-times-2.xlsx", sheet = "Sheet1")
 
 
 
