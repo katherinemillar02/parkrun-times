@@ -3,6 +3,27 @@
 ### ------------------- trying again 
 library(shiny)
 
+
+ui <- fluidPage(
+  
+  titlePanel("parkrun scatter"),
+  
+  sidebarLayout(
+    sidebarPanel(
+      sliderInput("VarX",
+                  "select X:",
+                  choices = list("date")), 
+      sliderInput("VarY",
+                  "select Y:",
+                  choices = list("time")),    
+    ),
+    
+    mainPanel(
+      plotOutput("distPlot")
+    )
+  )
+)
+
 # define server 
 shinyServer(function(input, output) {
   
