@@ -9,7 +9,7 @@ ui <- fluidPage(
              DT::dataTableOutput("mytable")
     ),
     tabPanel("parkrun plots", 
-            h2("visualising parkruns") ),
+            h2("visualising parkruns"),  ),
     tabPanel("Number of parkruns",
              h2("comparing parkruns per person"))
   )
