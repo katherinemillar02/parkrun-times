@@ -1,5 +1,6 @@
 # trying to get multiple things on one oage with fluid page?
 
+library(shiny)
 
 ui <- fluidPage(
   tabsetPanel(
@@ -7,8 +8,10 @@ ui <- fluidPage(
              h2("parkrun times"),
              DT::dataTableOutput("mytable")
     ),
-    tabPanel("Set parameters"),
-    tabPanel("Visualise results")
+    tabPanel("parkrun plots", 
+            h2("visualising parkruns") ),
+    tabPanel("Number of parkruns",
+             h2("comparing parkruns per person"))
   )
 )
 
