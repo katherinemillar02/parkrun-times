@@ -7,6 +7,7 @@ library(shiny)
 plotlyOutput("plot")
 # Server
 
+server < - function (input, output, session) {
 # convert renderPlot to renderPlotly
 output$plot <- renderPlotly({
   
@@ -18,7 +19,7 @@ output$plot <- renderPlotly({
   
   # wrap ggplot object with ggplotly
   ggplotly(p)
-})
+})}
 
 # Run the application 
 shinyApp(ui = ui, server = server)
