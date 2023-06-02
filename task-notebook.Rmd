@@ -5,3 +5,4 @@ output: html_notebook
 
 goals for app
 - figure out how to code multiple things within one shiny app
+- figured out, it can do one or the other 
