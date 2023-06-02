@@ -21,11 +21,44 @@ ui <- fluidPage(
   )
 )
 
-
 shinyApp(ui, server)
 
 
+renderPlot({
+  parkrun_times$sel <- selected()
+  ggplot(parkrun_times, aes(date, time)) + 
+    geom_point(aes(colour = sel)) +
+    theme_classic()+
+    scale_colour_discrete(limits = c("TRUE", "FALSE"))
+}, res = 96)
 
 
+ui <- fluidPage(
+  tabsetPanel(
+    tabPanel("parkrun times", 
+             h2("parkrun times"),
+             DT::dataTableOutput("mytable")
+    ),
+    tabPanel("parkrun plots", 
+             h2("visualising parkruns",
+                renderPlot({
+                  parkrun_times$sel <- selected()
+                  ggplot(parkrun_times, aes(date, time)) + 
+                    geom_point(aes(colour = sel)) +
+                    theme_classic()+
+                    scale_colour_discrete(limits = c("TRUE", "FALSE"))
+                }, res = 96)
+                ),
+             plotOutput("plot", brush = "plot_brush", dblclick = "plot_reset")
+             
+             
+             
+             
+    ),
+    tabPanel("Number of parkruns",
+             h2("comparing parkruns per person"))
+  )
+)
 
+shinyApp(ui, server)
 
