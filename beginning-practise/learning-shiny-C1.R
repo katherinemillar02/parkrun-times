@@ -123,6 +123,7 @@ output$histogram <- renderPlot({
   
 # EXERCISE 2 
 
+
   
   
   
