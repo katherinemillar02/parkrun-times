@@ -36,31 +36,6 @@ ui <- fluidPage(
   )
 )
 
-# creating a server to support the app 
-server <- function(input, output, session) {
-
-  # the server for the table function - seems to work 
-  output$mytable <- DT::renderDataTable({
-    DT::datatable(all_parkrun)
-  })
-  
-  output$plot <- renderPlot({
-    parkrun_times$sel <- input$mytable_rows_selected
-    ggplot(parkrun_times, aes(date, time)) + 
-      geom_point(aes(colour = as.character(sel))) +
-      theme_classic() +
-      scale_colour_manual(values = c("TRUE" = "blue", "FALSE" = "red"))
-  }, res = 96)
-  
-}
-
-
-
-# run the app
-shinyApp(ui, server)
-
-# app can still not run two things at the same time 
-
 
 
 
