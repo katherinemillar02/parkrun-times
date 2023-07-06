@@ -45,20 +45,22 @@ server <- function(input, output, session) {
   })
   
   output$plot <- renderPlot({
-    parkrun_times$sel <- input$my_table_rows_selected
+    parkrun_times$sel <- input$mytable_rows_selected
     ggplot(parkrun_times, aes(date, time)) + 
-      geom_point(aes(colour = sel)) +
-      theme_classic()+
-      scale_colour_discrete(limits = c("TRUE", "FALSE"))
+      geom_point(aes(colour = as.character(sel))) +
+      theme_classic() +
+      scale_colour_manual(values = c("TRUE" = "blue", "FALSE" = "red"))
   }, res = 96)
-  }
-
   
+}
 
 
 
-
+# run the app
 shinyApp(ui, server)
+
+# app can still not run two things at the same time 
+
 
 
 
