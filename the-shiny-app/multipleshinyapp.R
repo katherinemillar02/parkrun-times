@@ -1,6 +1,6 @@
 # trying to get multiple things on one page with fluid page?
 
-# loading the shiny package in
+# loading the packages in
 library(shiny)
 library(ggplot2)
 library(DT)
@@ -38,9 +38,16 @@ ui <- fluidPage(
 
 
 
+server <- function(input, output) {
+  output$mytable <- DT::renderDataTable({
+    DT::dataTable("mytable")
+  })
+}
 
 shinyApp(ui, server)
 
 
 
-#58cmddd
+
+}
+
