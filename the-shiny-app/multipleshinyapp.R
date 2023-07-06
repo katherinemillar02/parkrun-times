@@ -38,11 +38,9 @@ ui <- fluidPage(
 
 
 server <- function(input, output, session) {
-  
-  # Render the data table
+
   output$mytable <- DT::renderDataTable({
-    # Replace `your_data` with the actual data you want to display
-    DT::datatable(your_data)
+    DT::datatable(all_parkrun)
   })
 }
   
