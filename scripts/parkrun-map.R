@@ -1,4 +1,6 @@
-ggplot() + 
+
+# the code for a map plot
+ggplot() +
   geom_polygon(data = worldmap, 
                aes(x = long, 
                    y = lat, 
@@ -7,6 +9,7 @@ ggplot() +
               xlim = c(-10,3), 
               ylim = c(50, 59))
 
+# library(maps) will provide dfferent maps for different regions 
 library(maps)
 
 
