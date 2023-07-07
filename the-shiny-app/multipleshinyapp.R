@@ -37,11 +37,46 @@ ui <- fluidPage(
 )
 
 
+# trying to create a server function
+
 parkrun_times_server <- function(input, output, session) {
   
+output$mytable<- DT::renderDataTable({
+  DT::datatable(all_parkrun)
+})
+
+}
+  
+parkrun_plots_server <- function(input, output, session) {
+  selected_rows <- reactive ({
+    req(input$mytable_rows_selected)
+    data(input$mytable_rows_selected, ) 
+
+  }) 
+
+
+output$plot <- renderPlot({
+  ggplot(all_parkrun, aes(date, time)) +
+    geom_point() +
+    geom_point(data = selected_rows(), aes(colour = "selected"), size = 3) +
+    theme_classic() +
+    scale_colour_manual(values = c("selected" = "blue", "other" = "black"))
+}, res = 96)
 }
   
 
+
+server <- function(input, output, session) {
+ allparkrun <- all_parkrun   
+
+  
+
+callModule(parkrun_times_server, "parkrun_times", data = allparkrun)
+callModule(parkrun_times_server, "parkrun_plots", data = allparkrun)
+
+}
+
+shinyApp(ui, server)
 
 
 
