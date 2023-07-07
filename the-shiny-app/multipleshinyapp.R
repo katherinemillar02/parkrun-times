@@ -16,7 +16,6 @@ ui <- fluidPage(
     tabPanel("parkrun plots", 
              h2("visualising parkruns",
                 renderPlot({
-                  parkrun_times$sel <- selected()
                   ggplot(parkrun_times, aes(date, time)) + 
                     geom_point(aes(colour = sel)) +
                     theme_classic()+
@@ -36,7 +35,41 @@ ui <- fluidPage(
   )
 )
 
+# run the app 
 
+shinyApp(ui, server)
+
+server <- function(input, output, session) {
+  
+  output$mytable<- DT::renderDataTable({
+    DT::datatable(all_parkrun)
+  })
+
+output$plot<- renderPlot ({
+  ggplot(parkrun_times, aes(date, time)) +
+    geom_point(aes(colour = sel)) +
+    theme_classic() +
+    scale_colour_discrete(limits = c("", "A"))
+})
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# this code still doesn't work 
 # trying to create a server function
 
 parkrun_times_server <- function(input, output, session) {
@@ -64,6 +97,9 @@ output$plot <- renderPlot({
 }, res = 96)
 }
   
+
+
+
 
 
 server <- function(input, output, session) {
